@@ -1,0 +1,33 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    min-height: 86%;
+    background-color: #E0E0E0;
+    color: #0a0a0a;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.items{
+    text-align: center;
+    margin-top:20px;
+}
+
+.landingContent {
+    text-align: center;
+    text-decoration-line: underline;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footer {
+    color: #E0E0E0;
+    background-color: #343a40;
+    /* border-top: solid #0C1821 3px;
+    border-bottom: solid #0C1821 3px; */
+    padding: 15px;
+    margin-top:20px;
+    text-align: center;
+}
