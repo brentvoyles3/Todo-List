@@ -4,14 +4,19 @@ import './main.css';
 import Popup from '../Popup/Popup';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
 
 class LandingPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 0
+            count: 0,
+            isOpen: false
     };
     }
+    openModal = () => this.setState({ isOpen: true });
+    closeModal = () => this.setState({ isOpen: false });
+
     saySomething(something) {
         console.log(something);
     }
@@ -26,23 +31,27 @@ class LandingPage extends Component {
 
     render() {
         return (
-            <div>
+            <div className="total">
                 {/* Website landing page content */}
                 <div className="body">
-                    <div className="landingContent">
                         {/* Add content */}
                         <h1>
                             Todo List
                         </h1>
-                    </div>
-                </div>
                 <div className="items">
-                    <label>
-                        Chore:
-                    </label>
-                <button onClick={() => this.setState({ count: this.state.count + 1 })}>
-                    Add item
-                </button>
+                <Button variant="primary" onClick={this.openModal}> Add item </Button>
+                <Modal show={this.state.isOpen}>{/* ... */}</Modal>
+                <Modal show={this.state.isOpen} onHide={this.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Add Item</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Which item would you like to add to the list?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.closeModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
                 <select>
                     <option value="chore1">Exercise</option>
                     <option value="chore2">Wash Car</option>
@@ -50,11 +59,21 @@ class LandingPage extends Component {
                     <option value="chore4">Clean House</option>
                     <option value="chore5">Laundry</option>
                 </select>
-                <button>
-                    Remove item
-                    </button>
+                <Button variant="primary" onClick={this.openModal}> Complete Item </Button>
+                <Modal show={this.state.isOpen}>{/* ... */}</Modal>
+                <Modal show={this.state.isOpen} onHide={this.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Remove Item</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Which item would you like to remove from the list?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.closeModal}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
                 </div>
-                <p>You clicked {this.state.count} times</p>
+      </div>
             </div>
         );
         }

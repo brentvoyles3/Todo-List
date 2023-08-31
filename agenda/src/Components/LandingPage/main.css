@@ -3,22 +3,30 @@
     flex-direction: column;
     justify-content: flex-start;
     height: 100%;
-    min-height: 86%;
+    min-height:100vh;
     background-color: #E0E0E0;
     color: #0a0a0a;
     padding: 20px;
     max-width: 100%;
+    position: relative;
 }
 
 .options{
     margin-top:10px;
     text-align: center;
     margin-right: 10px;
+    background-color: #E0E0E0;
+}
+
+.total {
+    text-align: center;
+    background-color: #E0E0E0;
 }
 
 
 .items{
     text-align: center;
+    background-color: #E0E0E0;
     margin-top:20px;
 }
 
@@ -41,12 +49,10 @@
 background-color: #3e828e;
   }
 
-.landingContent {
+  .todoCount p{
+    margin-right:10px;
     text-align: center;
-    text-decoration-line: underline;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+  }
 
 .footer {
     color: #E0E0E0;
@@ -54,6 +60,5 @@ background-color: #3e828e;
     /* border-top: solid #0C1821 3px;
     border-bottom: solid #0C1821 3px; */
     padding: 15px;
-    margin-top:20px;
     text-align: center;
 }
