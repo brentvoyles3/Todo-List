@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: auto;
+    height: 100%;
     min-height: 86%;
     background-color: #E0E0E0;
     color: #0a0a0a;
@@ -10,10 +10,36 @@
     max-width: 100%;
 }
 
+.options{
+    margin-top:10px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+
 .items{
     text-align: center;
     margin-top:20px;
 }
+
+.items button:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .items button:last-child {
+    margin-left: 20px;
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .items:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .items button:hover {
+background-color: #3e828e;
+  }
 
 .landingContent {
     text-align: center;
