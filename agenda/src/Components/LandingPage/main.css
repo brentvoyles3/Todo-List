@@ -19,6 +19,12 @@
 
 .addList {
   text-align: center;
+  margin-right: 120px;
+  margin-top: 15px;
+}
+
+.addRemove {
+  text-align: center;
 }
 
 li {
@@ -36,6 +42,10 @@ ul {
 .addButton {
   width: 100px;
   margin-right:15px;
+}
+
+.removeButton {
+  margin-left:15px;
 }
 
 .options{

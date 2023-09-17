@@ -33,21 +33,26 @@ const listReducer = (state, action) => {
   }
 };
 
-const App = () => {
-  const [listData, dispatchListData] = React.useReducer(listReducer, {
-    list: initialList,
-    isShowList: true,
-  });
-  const [chore, setchore] = React.useState('');
+const LandingPage = () => {
+  const [list, setList] = React.useState(initialList);
+  const [chore, setChore] = React.useState('');
+
 
   function handleChange(event) {
-    setchore(event.target.value);
+    setChore(event.target.value);
   }
 
   function handleAdd() {
-    dispatchListData({ type: 'ADD_ITEM', chore, id: uuidv4() });
-    setchore('');
+    const newList = list.concat({ chore, id: uuidv4() });
+    setList(newList);
+    setChore('');
   }
+
+  function handleRemove(id) {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
+  }
+
 
   return (
     <div className="body">
@@ -55,20 +60,21 @@ const App = () => {
     <h1>
         Todo List
     </h1>
-    <div>
+    <div className="addRemove">
       <AddItem
         chore={chore}
         onChange={handleChange}
         onAdd={handleAdd}
       />
-      <List list={listData.list} />
+      <List list={list} />
     </div>
     </div>
   );
 };
 
+
 const AddItem = ({ chore, onChange, onAdd }) => (
-  <div className="add">
+  <div>
         <button className="addButton" type="button" onClick={onAdd}>
       Add Chore
     </button>
@@ -76,9 +82,9 @@ const AddItem = ({ chore, onChange, onAdd }) => (
   </div>
 );
 
-const RemoveItem = ({ chore, onChange, onAdd }) => (
+const RemoveItem = ({ chore, onChange, onRemove }) => (
   <div className="remove">
-        <button className="removeButton" type="button" onClick={onAdd}>
+        <button className="removeButton" type="button" onClick={onRemove}>
       Remove Chore
     </button>
   </div>
@@ -94,4 +100,4 @@ const List = ({ list }) => (
   </div>
 );
 
-export default App;
+export default LandingPage;
